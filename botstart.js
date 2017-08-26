@@ -6,7 +6,6 @@ serversPath = "./servers";
 //my functions
 const checkServer = require('./functions/core/checkserver.js');
 const insertServer = require('./functions/core/insertServer.js');
-const fssync = require('./fs_sync.js');
 
 
 

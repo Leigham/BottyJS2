@@ -12,6 +12,7 @@ function readFileAsync(filename) {
 };
 module.exports.readFileAsync = readFileAsync;
 
+
 function writeFile(filename,fileContents) {
     return new Promise(function(resolve, reject) {
         fs.writeFile(filename,content, function(err){
