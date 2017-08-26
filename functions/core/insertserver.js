@@ -1,18 +1,21 @@
-const fssync = require('./fs_sync.js');
+const fssyncRead = require('./fs_sync.js');
+const fssyncWrite = require('./fs_sync_write.js');
 
-function insertServer(message){
+async function insertServer(message){
     return new Promise((res,rej) => {
-        fssync.readFileAsync('./servers/Templates/TemplateInfo.json').then(function (files){
-            var json = JSON.parse(data);
+        console.log(serversPath+'/Templates/TemplateInfo.json');
+        fssyncRead.readFileAsync(serversPath+'/Templates/TemplateInfo.json').then(function (files){
+            var json = JSON.parse(files);
+            console.log(json);
             json.serverinfo["id"] = message.guild.id
             json.serverinfo.owners.push({"id":message.guild.ownerID});
-            fssync.writeFile(global.serversPath+'/'+message.guild.id+'/serverinfo.json',JSON.stringify(json)).then(function(err){
-            res('File Created'); 
-            }). catch(function (err){
-                rej('Coult not Create the file');
+            fssyncWrite.writeFile(serversPath+'/'+message.guild.id+'/serverinfo.json',JSON.stringify(json)).then(function(err){
+            res('File Created');
+            }).catch(function (err){
+                rej(err);
             });
         }).catch(function (err) {
-            rej('Template Server Info File Could Not be found.');
+            rej(err);
         });
     });
 };

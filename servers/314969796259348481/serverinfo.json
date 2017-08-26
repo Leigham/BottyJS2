@@ -1,1 +1,1 @@
-test
+{"serverinfo":{"id":"314969796259348481","owners":[{"id":"98607195687510016"}],"adminrole":"-1","modrole":"-1","ranks":[{"owner":["98607195687510016"]}],"commands":{"ping":{"description":"This command can be used to get the bots ping to the discord server","ranks":["owner"]}}}}

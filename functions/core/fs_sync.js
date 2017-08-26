@@ -11,18 +11,3 @@ function readFileAsync(filename) {
     });
 };
 module.exports.readFileAsync = readFileAsync;
-
-
-function writeFile(filename,fileContents) {
-    return new Promise(function(resolve, reject) {
-        fs.writeFile(filename,content, function(err){
-            if (err){
-                reject('We Couldnt Create the File ?');
-            }else{
-                resolve('File Created');
-            };
-        });
-    });
-};
-module.exports.writeFile = writeFile;
-
